@@ -1,0 +1,171 @@
+/* ==========================================================================
+   ACCESSIBLE DESIGN SYSTEM TOKENS & UTILITIES
+   Hand-crafted by Alice Carasco | WCAG 2.1 AA Compliant (Min 4.5:1 / 7:1 Contrast)
+   ========================================================================== */
+
+:root {
+  /* Surface & Background Colors - Mineral Dark Palette */
+  --a11y-bg-dark: #090d16;
+  --a11y-bg-card: #111726;
+  --a11y-bg-card-hover: #1a2336;
+  --a11y-bg-popover: #151c2e;
+  --a11y-bg-subtle: #1c263b;
+  --a11y-bg-header: rgba(17, 23, 38, 0.92);
+  
+  /* Text & Contrast Ratios (> 7:1 AAA standard on dark) */
+  --a11y-text-primary: #f8fafc;        /* Slate 50 */
+  --a11y-text-secondary: #cbd5e1;      /* Slate 300 */
+  --a11y-text-muted: #94a3b8;          /* Slate 400 - High Contrast (7.5:1) */
+  
+  /* Borders & Dividers */
+  --a11y-border: #26334d;
+  --a11y-border-hover: #3b4d71;
+  --a11y-border-focus: #6366f1;
+
+  /* Accent Colors (Hand-curated HSL) */
+  --a11y-primary: #6366f1;            /* Indigo 500 */
+  --a11y-primary-hover: #818cf8;      /* Indigo 400 */
+  --a11y-primary-active: #4f46e5;     /* Indigo 600 */
+  --a11y-primary-text: #ffffff;
+  
+  --a11y-accent-amber: #f59e0b;       /* Amber Accent */
+  --a11y-accent-cyan: #38bdf8;        /* Sky Blue */
+
+  /* Status Colors (Contrast Tested > 7:1) */
+  --a11y-success: #34d399;            /* Emerald 400 */
+  --a11y-success-bg: #064e3b;         /* Emerald 900 */
+  --a11y-warning: #fbbf24;            /* Amber 400 */
+  --a11y-warning-bg: #451a03;         /* Amber 950 */
+  --a11y-danger: #f87171;             /* Red 400 */
+  --a11y-danger-bg: #450a0a;          /* Red 950 */
+
+  /* Code Block Tokens (Theme Aware) */
+  --code-bg: #080c14;
+  --code-header-bg: #0f1523;
+  --code-text: #e2e8f0;
+  --code-text-muted: #94a3b8;
+  --code-border: #26334d;
+
+  /* DevTools Syntax Highlighting Colors */
+  --syn-tag: #38bdf8;
+  --syn-role: #34d399;
+  --syn-attr: #fbbf24;
+  --syn-val: #cbd5e1;
+  --syn-modal: #f87171;
+
+  /* Key Badge Cap Colors */
+  --key-bg: #1e293b;
+  --key-text: #f8fafc;
+  --key-border: #334155;
+  --key-shadow: #0f172a;
+
+  /* Focus Indicator (WCAG 2.4.7 / 2.4.11 Visible Focus) */
+  --a11y-focus-ring-color: #38bdf8;   /* Vivid Sky Blue for instant clarity */
+  --a11y-focus-ring-width: 3px;
+  --a11y-focus-ring-offset: 2px;
+  --a11y-focus-ring: var(--a11y-focus-ring-width) solid var(--a11y-focus-ring-color);
+
+  /* Typography */
+  --a11y-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --a11y-font-heading: 'Outfit', 'Inter', sans-serif;
+  --a11y-font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  
+  /* Layout Radius & Touch Standards */
+  --a11y-radius-sm: 6px;
+  --a11y-radius-md: 10px;
+  --a11y-radius-lg: 16px;
+  --a11y-min-touch-target: 44px;      /* WCAG 2.5.5 Touch Target Minimum */
+
+  /* Transitions & Motion Dynamics */
+  --a11y-transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --a11y-transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light Theme Overrides (High-contrast slate & warm white) */
+[data-theme='light'] {
+  --a11y-bg-dark: #f8fafc;
+  --a11y-bg-card: #ffffff;
+  --a11y-bg-card-hover: #f1f5f9;
+  --a11y-bg-popover: #ffffff;
+  --a11y-bg-subtle: #e2e8f0;
+  --a11y-bg-header: rgba(255, 255, 255, 0.92);
+  
+  --a11y-text-primary: #0f172a;        /* Slate 900 */
+  --a11y-text-secondary: #334155;      /* Slate 700 */
+  --a11y-text-muted: #475569;          /* Slate 600 - Contrast > 7:1 */
+  
+  --a11y-border: #cbd5e1;
+  --a11y-border-hover: #94a3b8;
+  --a11y-border-focus: #4f46e5;
+
+  --a11y-primary: #4f46e5;             /* Indigo 600 */
+  --a11y-primary-hover: #4338ca;
+  --a11y-primary-text: #ffffff;
+
+  --a11y-success: #047857;             /* Emerald 700 */
+  --a11y-success-bg: #ecfdf5;
+  --a11y-warning: #b45309;             /* Amber 700 */
+  --a11y-warning-bg: #fffbeb;
+  --a11y-danger: #b91c1c;              /* Red 700 */
+  --a11y-danger-bg: #fef2f2;
+
+  /* Code Block Tokens for Light Mode (High Contrast > 7:1) */
+  --code-bg: #f8fafc;
+  --code-header-bg: #e2e8f0;
+  --code-text: #0f172a;
+  --code-text-muted: #334155;
+  --code-border: #cbd5e1;
+
+  /* DevTools Syntax Highlighting Colors (High Contrast for Light Mode) */
+  --syn-tag: #0284c7;        /* Ocean Blue 600 */
+  --syn-role: #047857;       /* Emerald 700 */
+  --syn-attr: #b45309;       /* Amber 700 */
+  --syn-val: #334155;        /* Slate 700 */
+  --syn-modal: #b91c1c;      /* Red 700 */
+
+  /* Key Badge Cap Colors for Light Mode */
+  --key-bg: #f1f5f9;
+  --key-text: #0f172a;
+  --key-border: #cbd5e1;
+  --key-shadow: #94a3b8;
+
+  --a11y-focus-ring-color: #0284c7;    /* High Contrast Sky 600 */
+}
+
+/* Screen Reader Only Utility Class (WCAG 4.1.2) */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* High-Contrast Visible Focus Standards */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: var(--a11y-focus-ring);
+  outline-offset: var(--a11y-focus-ring-offset);
+  border-radius: 4px;
+}
+
+/* Motion Accessibility (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+

@@ -1,0 +1,23 @@
+{
+  "name": "@accessible-ui/vue",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WCAG 2.1 AA Compliant Vue 3 Component Library",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@accessible-ui/core-tokens": "file:../core-tokens"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0",
+    "vue": "^3.4.0"
+  }
+}

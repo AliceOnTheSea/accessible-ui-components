@@ -1,0 +1,25 @@
+{
+  "name": "@accessible-ui/react",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WCAG 2.1 AA Compliant React UI Component Library",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@accessible-ui/core-tokens": "file:../core-tokens"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}

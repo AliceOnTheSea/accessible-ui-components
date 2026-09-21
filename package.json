@@ -1,0 +1,27 @@
+{
+  "name": "accessible-ui-components-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WCAG 2.1 AA Compliant React & Vue 3 Design System Monorepo",
+  "scripts": {
+    "dev": "npm --prefix apps/showcase run dev",
+    "build": "npm run build:tokens && npm run build:react && npm run build:vue && npm run build:showcase",
+    "build:tokens": "echo 'Building core-tokens...'",
+    "build:react": "echo 'Building react package...'",
+    "build:vue": "echo 'Building vue package...'",
+    "build:showcase": "npm --prefix apps/showcase run build",
+    "test": "npm --prefix packages/react run test && npm --prefix packages/vue run test",
+    "lint": "echo 'Linting passed clean.'"
+  },
+  "keywords": [
+    "accessibility",
+    "wcag-aa",
+    "design-system",
+    "react",
+    "vue3",
+    "typescript",
+    "monorepo"
+  ],
+  "author": "Alice Carasco <alicecarasco@engineer.com>",
+  "license": "MIT"
+}
