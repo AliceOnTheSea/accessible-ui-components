@@ -8,12 +8,20 @@ import { useEffect, useRef } from 'react';
 export function useFocusTrap(isOpen: boolean, onClose?: () => void) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
+  const onCloseRef = useRef(onClose);
+
+  // Keep latest onClose callback in a ref to prevent effect re-runs on state changes
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
 
   useEffect(() => {
     if (!isOpen) return;
 
-    // Save currently focused element to restore later
-    previousFocusRef.current = document.activeElement as HTMLElement;
+    // Save currently focused element to restore later ONLY if focus is currently outside the modal container
+    if (!containerRef.current?.contains(document.activeElement)) {
+      previousFocusRef.current = document.activeElement as HTMLElement;
+    }
 
     const getFocusableElements = (): HTMLElement[] => {
       if (!containerRef.current) return [];
@@ -31,18 +39,21 @@ export function useFocusTrap(isOpen: boolean, onClose?: () => void) {
       ).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement);
     };
 
-    // Auto focus first focusable element or container
-    const focusables = getFocusableElements();
-    if (focusables.length > 0) {
-      focusables[0].focus();
-    } else if (containerRef.current) {
-      containerRef.current.focus();
+    // Auto focus first focusable element ONLY if focus is not already inside the container
+    const isAlreadyFocused = containerRef.current && containerRef.current.contains(document.activeElement);
+    if (!isAlreadyFocused) {
+      const focusables = getFocusableElements();
+      if (focusables.length > 0) {
+        focusables[0].focus();
+      } else if (containerRef.current) {
+        containerRef.current.focus();
+      }
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && onClose) {
+      if (e.key === 'Escape' && onCloseRef.current) {
         e.preventDefault();
-        onClose();
+        onCloseRef.current();
         return;
       }
 
@@ -76,7 +87,8 @@ export function useFocusTrap(isOpen: boolean, onClose?: () => void) {
         previousFocusRef.current.focus();
       }
     };
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   return containerRef;
 }
+
